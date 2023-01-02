@@ -33,11 +33,7 @@ export default class ProductList extends React.Component{
   //         {id:"5",title:"Xiaomi 12 Pro 5G",likes:59,rating:1,price:"Rs 67,999",img:"https://m.media-amazon.com/images/I/71vNgTH3MzL._SX679_.jpg"},
   //       ]
 
-  // deleteUser(userId) {
-  //   console.log(`Deleting User with id : ${userId}`);
-  //   let newUsers = this.state.users.filter(u => u.id != userId);
-  //   this.setState({ users: newUsers });
-  // }
+
   deleteProduct(productId){
     console.log(`${productId}`)
     let newProducts = this.state.productList.filter(p => p.id !== productId)
@@ -45,7 +41,7 @@ export default class ProductList extends React.Component{
   }
   render() {
 
-    let allProducts = this.state.productList.map(product=> <Product productdetails={product}  deleteProduct={id =>this.deleteProduct(id)}/>)
+    let allProducts = this.state.productList.map(product=> <Product productdetails={product}  deleteProduct={id =>this.deleteProduct(id)} key={product.id}/>)
     return(
       <div className="d-flex flex-wrap justify-content-evenly " >
       {allProducts}
